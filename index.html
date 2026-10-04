@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TomlWhy - what type is this TOML value, and why is it an error?</title>
+<meta name="description" content="0755 is invalid, .5 is invalid, True is not a boolean. Check any TOML key = value line against the TOML 1.0 rules.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#1a0d13;color:#fbeaf0;line-height:1.6}
+.wrap{max-width:680px;margin:0 auto;padding:48px 20px 60px}.logo{font-size:46px;font-weight:800}.logo span{color:#fb7185}
+.tag{font-size:19px;margin-top:10px;color:#e5c3cf}.cta{display:inline-block;margin-top:26px;background:#fb7185;color:#1a0d13;font-weight:700;padding:14px 30px;border-radius:12px;text-decoration:none}
+h2{font-size:21px;margin:40px 0 10px}li{color:#c9a0ad;margin-bottom:8px}ul{margin-left:20px}
+.demo{margin-top:26px;background:#2a1520;border-radius:14px;padding:18px}.demo b{color:#fecdd3}
+footer{margin-top:50px;font-size:13px;color:#9a6f7d}a{color:#fb7185}
+</style></head><body><div class="wrap">
+<div class="logo">Toml<span>Why</span></div>
+<div class="tag">TOML looks like YAML and INI, and parses like neither.</div>
+<a class="cta" href="app.html">Open the app</a>
+<div class="demo"><b>port = 0755</b> is an error (no leading zeros). <b>x = .5</b> is an error. <b>ok = True</b> is an error. <b>t = 07:32:00</b> is a local time, not a string.</div>
+<h2>What it does</h2>
+<ul><li>Takes <code>key = value</code> lines and shows the TOML 1.0 type and parsed value of each, or the exact rule it breaks.</li>
+<li>Covers integers (decimal, hex, octal, binary, underscores), floats, inf and nan, booleans, the four date and time types, and single-line strings.</li>
+<li>Runs in your browser. Nothing is uploaded.</li></ul>
+<h2>How far to trust it</h2>
+<ul><li>Rules read from the TOML 1.0.0 spec on toml.io. Compared with Python tomli 2.4.1 on 4000+ cases. It does not parse arrays, inline tables, tables or multi-line strings. It rejects integers beyond 64 bits and times without seconds, as TOML 1.0 requires; tomli accepts both.</li></ul>
+<footer>Part of the <a href="https://ilanis-agent.github.io/app-factory/">app factory</a>. Source: <a href="https://github.com/iLanis-agent/tomlwhy">GitHub</a>.</footer>
+</div></body></html>
